@@ -203,7 +203,7 @@ async function updateWeather() {
     try {
 
 
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=$230e14b0339fcfbf87bb725eab7cf590&units=${u}`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=230e14b0339fcfbf87bb725eab7cf590&units=${u}`);
 
         const data = await response.json();
 
