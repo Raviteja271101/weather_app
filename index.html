@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+
+  <body
+    class="dark:bg-linear-to-br dark:from-[#1e1b4b] dark:via-[#312e81] dark:to-[#4c1d95] bg-linear-to-br from-[#60a5fa] via-[#3b82f6] to-[#9333ea]"
+  >
+    <!-- linear-gradient(to bottom right, #1e1b4b, #312e81, #4c1d95)  -->
+    <!-- linear-gradient(to bottom right, #60a5fa, #3b82f6, #9333ea) -->
+    <div
+      class="w-full h-full min-h-screen text-white flex flex-col gap-8 py-12 px-8"
+    >
+      <h1 class="font-bold text-4xl">Weather App</h1>
+      <div
+        class="max-w-[1400px] w-full h-full flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-10"
+      >
+        <div class="flex gap-2 max-w-full">
+          <div
+            class="flex gap-2 items-center border border-[#ffffff33] rounded-lg bg-[#ffffff1a] backdrop-blur-sm dark:border-[#9333ea4d] dark:bg-[#1e143280]"
+          >
+            <i data-lucide="search" class="w-8 h-5 pl-2"></i>
+            <div>
+              <!-- <label id="label">City:</label> -->
+              <input
+                id="city"
+                type="text"
+                placeholder="Search for a city.."
+                class="px-2 py-2 text-base outline-none md:max-w-full max-w-40 w-full"
+              />
+            </div>
+          </div>
+          <button
+            id="search"
+            type="submit"
+            class="text-base dark:bg-[#9333eacc] bg-[#ffffff] px-4 py-2 dark:text-white text-blue-600 font-semibold rounded-lg max-w-full"
+          >
+            Search
+          </button>
+        </div>
+
+        <div
+          class="relative inline-flex items-center bg-[#ffffff1a] backdrop-blur-sm rounded-lg p-1 w-30 h-12 overflow-hidden border border-[#ffffff33] dark:border-[#9333ea4d] dark:bg-[#1e143280]"
+        >
+          <!-- The Hidden Checkbox -->
+          <input
+            id="check"
+            type="checkbox"
+            class="peer hidden"
+            onclick="toggle()"
+          />
+
+          <!-- The Sliding Background (The white box) -->
+          <div
+            class="absolute top-1 left-1 w-[calc(50%-4px)] h-[calc(100%-8px)] dark:bg-[#9333eacc] bg-white rounded-lg shadow-sm transition-transform duration-300 ease-in-out peer-checked:translate-x-full"
+          ></div>
+
+          <!-- Label for Celsius -->
+          <label
+            for="check"
+            class="relative z-10 flex-1 text-center cursor-pointer text-base font-bold transition-colors duration-300 peer-checked:text-white text-blue-600 dark:text-white"
+          >
+            °C
+          </label>
+
+          <!-- Label for Fahrenheit -->
+          <label
+            for="check"
+            class="relative z-10 flex-1 text-center cursor-pointer text-base font-bold transition-colors duration-300 peer-checked:text-blue-600 dark:peer-checked:text-white text-white"
+          >
+            °F
+          </label>
+        </div>
+
+        <button
+          id="theme-toggle"
+          class="border border-[#ffffff33] dark:border-[#9333ea4d] dark:bg-[#1e143280] p-2 rounded-lg"
+        >
+          <i class="w-10 h-10" data-lucide="moon"></i>
+        </button>
+      </div>
+      <section
+        class="border border-[#ffffff33] dark:border-[#9333ea4d] dark:bg-[#1e143280] mx-auto w-full max-w-[1400px] p-8 flex flex-col justify-center items-center bg-[#ffffff1a] backdrop-blur-sm rounded-lg gap-4"
+      >
+        <h1 id="location" class="text-4xl">..</h1>
+        <p id="date" class="text-[#e5e7eb] text-base"></p>
+        <div class="flex gap-4">
+          <i
+            id="main-weather-icon"
+            class="w-20 h-20"
+            data-lucide="cloud-sun"
+          ></i>
+          <div class="flex flex-col">
+            <p id="degree" class="text-5xl">Detecting location...</p>
+            <p id="desc" class="text-[#e5e7eb]"></p>
+            <p id="feels" class="text-[#d1d5db]">Feels like</p>
+          </div>
+        </div>
+        <div
+          class="flex justify-center md:justify-between items-center w-full mt-8 flex-wrap gap-10"
+        >
+          <div class="flex justify-between gap-4 items-center">
+            <i data-lucide="droplets" class="text-gray-300 w-10 h-10"></i>
+            <div class="md:min-w-[150px] w-full">
+              <p>Humidity</p>
+              <p id="humid" class="text-xl"></p>
+            </div>
+          </div>
+          <div class="flex justify-between gap-4 items-center">
+            <i data-lucide="gauge" class="text-gray-300 w-10 h-10"></i>
+            <div class="md:min-w-[150px] w-full">
+              <p>Pressure</p>
+              <p id="pressure" class="text-xl"></p>
+            </div>
+          </div>
+          <div class="flex justify-between gap-4 items-center">
+            <i data-lucide="eye" class="text-gray-300 w-10 h-10"></i>
+            <div class="md:min-w-[150px] w-full">
+              <p>Visibility</p>
+              <p id="visibility" class="text-xl"></p>
+            </div>
+          </div>
+          <div class="flex justify-between gap-4 items-center">
+            <i data-lucide="wind" class="text-gray-300 w-10 h-10"></i>
+            <div class="md:min-w-[150px] w-full">
+              <p>Wind</p>
+              <p id="wind" class="text-xl"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="">
+        <h1 class="text-2xl md:text-3xl font-medium">5-Days Forecast</h1>
+        <div
+          id="forecast-container"
+          class="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 lg:justify-between justify-start flex-row mx-auto mt-5 gap-10"
+        >
+          <!-- 5-day forecast cards will be injected here -->
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
