@@ -44,45 +44,47 @@
           </button>
         </div>
 
-        <div
-          class="relative inline-flex items-center bg-[#ffffff1a] backdrop-blur-sm rounded-lg p-1 w-30 h-12 overflow-hidden border border-[#ffffff33] dark:border-[#9333ea4d] dark:bg-[#1e143280]"
-        >
-          <!-- The Hidden Checkbox -->
-          <input
-            id="check"
-            type="checkbox"
-            class="peer hidden"
-            onclick="toggle()"
-          />
-
-          <!-- The Sliding Background (The white box) -->
+        <div class="flex items-center gap-10">
           <div
-            class="absolute top-1 left-1 w-[calc(50%-4px)] h-[calc(100%-8px)] dark:bg-[#9333eacc] bg-white rounded-lg shadow-sm transition-transform duration-300 ease-in-out peer-checked:translate-x-full"
-          ></div>
-
-          <!-- Label for Celsius -->
-          <label
-            for="check"
-            class="relative z-10 flex-1 text-center cursor-pointer text-base font-bold transition-colors duration-300 peer-checked:text-white text-blue-600 dark:text-white"
+            class="relative inline-flex items-center bg-[#ffffff1a] backdrop-blur-sm rounded-lg p-1 w-30 h-12 overflow-hidden border border-[#ffffff33] dark:border-[#9333ea4d] dark:bg-[#1e143280]"
           >
-            °C
-          </label>
+            <!-- The Hidden Checkbox -->
+            <input
+              id="check"
+              type="checkbox"
+              class="peer hidden"
+              onclick="toggle()"
+            />
 
-          <!-- Label for Fahrenheit -->
-          <label
-            for="check"
-            class="relative z-10 flex-1 text-center cursor-pointer text-base font-bold transition-colors duration-300 peer-checked:text-blue-600 dark:peer-checked:text-white text-white"
+            <!-- The Sliding Background (The white box) -->
+            <div
+              class="absolute top-1 left-1 w-[calc(50%-4px)] h-[calc(100%-8px)] dark:bg-[#9333eacc] bg-white rounded-lg shadow-sm transition-transform duration-300 ease-in-out peer-checked:translate-x-full"
+            ></div>
+
+            <!-- Label for Celsius -->
+            <label
+              for="check"
+              class="relative z-10 flex-1 text-center cursor-pointer text-base font-bold transition-colors duration-300 peer-checked:text-white text-blue-600 dark:text-white"
+            >
+              °C
+            </label>
+
+            <!-- Label for Fahrenheit -->
+            <label
+              for="check"
+              class="relative z-10 flex-1 text-center cursor-pointer text-base font-bold transition-colors duration-300 peer-checked:text-blue-600 dark:peer-checked:text-white text-white"
+            >
+              °F
+            </label>
+          </div>
+
+          <button
+            id="theme-toggle"
+            class="border border-[#ffffff33] dark:border-[#9333ea4d] dark:bg-[#1e143280] p-2 rounded-lg"
           >
-            °F
-          </label>
+            <i class="w-10 h-10" data-lucide="moon"></i>
+          </button>
         </div>
-
-        <button
-          id="theme-toggle"
-          class="border border-[#ffffff33] dark:border-[#9333ea4d] dark:bg-[#1e143280] p-2 rounded-lg"
-        >
-          <i class="w-10 h-10" data-lucide="moon"></i>
-        </button>
       </div>
       <section
         class="border border-[#ffffff33] dark:border-[#9333ea4d] dark:bg-[#1e143280] mx-auto w-full max-w-350 p-8 flex flex-col justify-center items-center bg-[#ffffff1a] backdrop-blur-sm rounded-lg gap-4"
@@ -96,7 +98,9 @@
             data-lucide="cloud-sun"
           ></i>
           <div class="flex flex-col">
-            <p id="degree" class="text-5xl">Detecting location...</p>
+            <p id="degree" class="text-4xl md:text-5xl">
+              Detecting location...
+            </p>
             <p id="desc" class="text-[#e5e7eb]"></p>
             <p id="feels" class="text-[#d1d5db]">Feels like</p>
           </div>
