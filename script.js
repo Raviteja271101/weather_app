@@ -298,9 +298,9 @@ async function forecast(cityName) {
             dirty += `<div class="flex items-center justify-center md:max-w-[200px] max-w-40 shrink w-full border p-4 border-[#ffffff33] bg-[#ffffff1a] backdrop-blur-sm rounded-lg dark:border-[#9333ea4d] dark:bg-[#1e143280]"> 
       <div class= "flex flex-col items-center">
       <h4 class="text-2xl">${day}</h4>
-      <h6 class="text-base">${date}</h6>
+      <h6 class="text-base ">${date}</h6>
       <i data-lucide="${iconName}" class="mb-2 ${dayNightClass}" style="color: ${iconColor}"></i>
-      <h6 class="text-base">${desc}</h6>
+      <h6 class="text-base text-center">${desc}</h6>
 
  <p>${tempMax}° <span class="text-[#cbcccc]">${tempMin}°</span></p>
       </div>
